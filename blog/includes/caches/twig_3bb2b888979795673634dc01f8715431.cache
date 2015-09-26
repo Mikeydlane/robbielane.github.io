@@ -1,0 +1,16 @@
+<?php
+$this->requireTemplate("layouts/default.twig");
+class __TwigTemplate_3bb2b888979795673634dc01f8715431 extends __TwigTemplate_c19a24ba4c4f488924cc287729ac8d39 {
+/* LINE:3 */
+public function block_content($context) {
+$context['::superblock'] = array($this, 'parent::block_content');
+echo "\n                <div class=\"page\">\n                    <h2 class=\"title\">";
+/* LINE:5 */
+echo twig_translate_string_filter("Not Found");
+echo "</h2>\n                    <p class=\"post body\">";
+/* LINE:6 */
+echo twig_translate_string_filter("Sorry, but you are looking for something that isn't here.");
+echo "</p>\n                    <div class=\"page_shadow\"></div>\n                </div>\n";
+}
+
+}

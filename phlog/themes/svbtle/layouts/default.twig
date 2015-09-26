@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head profile="http://gmpg.org/xfn/11">
+		<meta http-equiv="Content-type" content="$theme.type; charset=utf-8" />
+		<meta name="HandheldFriendly" content="True">
+		<meta name="MobileOptimized" content="320">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>{% block title %}$site.name{% if title %} &raquo; ${ title | escape }{% endif %}{% endblock %}</title>
+		<meta name="description" content="$site.description" />
+		<meta name="generator" content="Chyrp $version" />
+		<link rel="pingback" href="$site.url/includes/xmlrpc.php" />
+		<link rel="EditURI" type="application/rsd+xml" href="$site.url/includes/rsd.php" />
+		<link rel="shortcut icon" href="$site.url/favicon.ico" />
+		<link rel="canonical" href="{% url route.request %}" />
+		$theme.feeds
+		$theme.stylesheets
+		{% if visitor.group.can("add_post", "add_draft", "add_page", "view_own_draft", "view_draft", "change_settings", "toggle_extensions") %}
+		$theme.javascripts
+		{% else %}
+		<script src="$site.url/themes/pelican-svbtle/javascripts/theme.js.php"></script>	
+		{% endif %}
+	 ${ trigger.call("head") }
+	</head>
+    <body>
+{% include "content/sidebar.twig" %}
+<section id="posts">
+{#<ul>
+ <li>${ "Welcome, %s!" | translate | format(visitor.login | fallback("Guest" | translate)) }</li>
+{% if visitor.logged_in %}
+<li><a href="{% url "controls" %}">${ "User Controls" | translate }</a></li>
+{% if visitor.group.can("add_post", "add_page", "view_own_draft", "view_draft", "change_settings") %}
+<li><a class="toggle_admin" href="{% url "toggle_admin" %}">${ "Toggle Admin Bar" | translate }</a></li>
+{% endif %}
+<li><a href="{% url "logout" %}">${ "Log Out" | translate }</a></li>
+{% else %}
+<li><a href="{% url "login" %}">${ "Log In" | translate }</a></li>
+{% if site.can_register %}
+<li><a href="{% url "register" %}">${ "Register" | translate }</a></li>
+{% endif %}
+<li><a href="{% url "lost_password" %}">${ "Lost Password?" | translate }</a></li>
+{% endif %}
+</ul>
+{% if visitor.group.can("add_post", "add_draft", "add_page", "view_own_draft", "view_draft", "change_settings", "toggle_extensions") %}
+	<div id="controls"{% if hide_admin %} style="display: none"{% endif %}>
+		<ul>
+			{% if visitor.group.can("add_post") %}
+			<li><a id="add_post" href="{% admin "write_post" %}">${ "Write" | translate }</a></li>
+			{% elseif visitor.group.can("add_draft") %}
+			<li><a id="add_draft" href="{% admin "write_post" %}">${ "Write Draft" | translate }</a></li>
+			{% endif %}
+			{% if visitor.group.can("add_page") %}
+			<li><a id="add_page" href="{% admin "write_page" %}">${ "Add Page" | translate }</a></li>
+			{% endif %}
+			{% if visitor.group.can("view_own_draft", "view_draft") %}
+			<li><a id="your_drafts" href="{% url "drafts" %}">${ "Your Drafts" | translate }</a></li>
+			{% endif %}
+			{% if visitor.group.can("change_settings", "toggle_extensions") %}
+			<li><a id="site_settings" href="$site.chyrp_url/admin/">${ "Admin" | translate }</a></li>
+			{% endif %}
+			<li><a class="toggle_admin" href="{% url "toggle_admin" %}">${ "Close" | translate }</a></li>
+		</ul>
+	</div>#}
+		{% for type, messages in flash.all | items %}
+		{% for message in messages %}
+		<div class="alert ${ type | depluralize } span3">$message</div>
+		{% endfor %}
+		{% endfor %}
+<dl><ol>{% block content %}{% endblock %}</ol></dl>
+	<p class="paginator">
+		{% if posts.paginated and posts.next_page %}
+			<a href="$posts.next_page_url" rel="next" class="button_accent" style="position: absolute; right: 0;">Next &rarr;</a>
+		{% endif %}
+		{% if posts.paginated and posts.prev_page %}
+			<a href="$posts.prev_page_url" rel="prev" class="button_accent">&larr; Previous</a>
+		{% endif %}
+	</p>
+</section>
+${ trigger.call("end_content") }
+<!-- Queries: $sql_queries | Load Time: $theme.load_time -->
+    </body>
+</html>

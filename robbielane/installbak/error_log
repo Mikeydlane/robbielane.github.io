@@ -1,0 +1,22 @@
+[01-Apr-2015 18:09:19] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/php/54/usr/lib64/php/modules/imagick.so' - /usr/php/54/usr/lib64/php/modules/imagick.so: undefined symbol: zend_new_interned_string in Unknown on line 0
+[01-Apr-2015 18:09:19] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/php/54/usr/lib64/php/modules/http.so' - /usr/php/54/usr/lib64/php/modules/http.so: undefined symbol: zend_new_interned_string in Unknown on line 0
+[01-Apr-2015 18:09:19] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
+Module compiled with module API=20100525, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[01-Apr-2015 18:09:19] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/php/54/usr/lib64/php/modules/mailparse.so' - /usr/php/54/usr/lib64/php/modules/mailparse.so: undefined symbol: zend_new_interned_string in Unknown on line 0
+[01-Apr-2015 18:09:19] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/php/54/usr/lib64/php/modules/oauth.so' - /usr/php/54/usr/lib64/php/modules/oauth.so: undefined symbol: zend_new_interned_string in Unknown on line 0
+[01-Apr-2015 18:09:19] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/php/54/usr/lib64/php/modules/oci8.so' - /usr/php/54/usr/lib64/php/modules/oci8.so: undefined symbol: zend_new_interned_string in Unknown on line 0
+[01-Apr-2015 18:09:19] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/php/54/usr/lib64/php/modules/uploadprogress.so' - /usr/php/54/usr/lib64/php/modules/uploadprogress.so: undefined symbol: zend_ini_string_ex in Unknown on line 0
+[02-Apr-2015 08:56:55] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/php/54/usr/lib64/php/modules/imagick.so' - /usr/php/54/usr/lib64/php/modules/imagick.so: undefined symbol: zend_new_interned_string in Unknown on line 0
+[02-Apr-2015 08:56:55] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/php/54/usr/lib64/php/modules/http.so' - /usr/php/54/usr/lib64/php/modules/http.so: undefined symbol: zend_new_interned_string in Unknown on line 0
+[02-Apr-2015 08:56:55] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
+Module compiled with module API=20100525, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[02-Apr-2015 08:56:55] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/php/54/usr/lib64/php/modules/mailparse.so' - /usr/php/54/usr/lib64/php/modules/mailparse.so: undefined symbol: zend_new_interned_string in Unknown on line 0
+[02-Apr-2015 08:56:55] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/php/54/usr/lib64/php/modules/oauth.so' - /usr/php/54/usr/lib64/php/modules/oauth.so: undefined symbol: zend_new_interned_string in Unknown on line 0
+[02-Apr-2015 08:56:55] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/php/54/usr/lib64/php/modules/oci8.so' - /usr/php/54/usr/lib64/php/modules/oci8.so: undefined symbol: zend_new_interned_string in Unknown on line 0
+[02-Apr-2015 08:56:55] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/php/54/usr/lib64/php/modules/uploadprogress.so' - /usr/php/54/usr/lib64/php/modules/uploadprogress.so: undefined symbol: zend_ini_string_ex in Unknown on line 0

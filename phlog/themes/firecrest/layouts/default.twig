@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head profile="http://gmpg.org/xfn/11">
+        <meta http-equiv="Content-type" content="$theme.type; charset=utf-8" />
+        <title>{% block title %}$site.name{% if title %} &raquo; ${ title | escape }{% endif %}{% endblock %}</title>
+        <meta name="description" content="$site.description" />
+        <meta name="generator" content="Chyrp" />
+        <link rel="pingback" href="$site.chyrp_url/includes/xmlrpc.php" />
+        <link rel="EditURI" type="application/rsd+xml" href="$site.chyrp_url/includes/rsd.php" />
+        <link rel="shortcut icon" href="$site.url/favicon.ico" />
+        <link rel="canonical" href="{% url route.request %}" />
+		<link rel="stylesheet" href="../../css/normalize.min.css">
+		<link rel="stylesheet" href="../../../css/main.css">
+		<link rel="stylesheet" href="../../../css/reset.css">
+        {% if post.next.url %}<link rel="next" href="$post.next.url" />{% endif %}
+        {% if post.prev.url %}<link rel="prev" href="$post.prev.url" />{% endif %}
+        $theme.feeds
+        $theme.stylesheets
+        $theme.javascripts
+    ${ trigger.call("head") }
+    </head>
+    <body>
+		
+        {% if visitor.group.can("add_post", "add_draft", "add_page", "view_own_draft", "view_draft", "change_settings", "toggle_extensions") %}
+        <div id="controls"{% if hide_admin %} style="display: none"{% endif %}>
+            <ul>
+                {% if visitor.group.can("add_post") %}
+                <li><a id="add_post" href="{% admin "write_post" %}">${ "Write" | translate }</a></li>
+                {% elseif visitor.group.can("add_draft") %}
+                <li><a id="add_draft" href="{% admin "write_post" %}">${ "Write Draft" | translate }</a></li>
+                {% endif %}
+                {% if visitor.group.can("add_page") %}
+                <li><a id="add_page" href="{% admin "write_page" %}">${ "Add Page" | translate }</a></li>
+                {% endif %}
+                {% if visitor.group.can("view_own_draft", "view_draft") %}
+                <li><a id="your_drafts" href="{% url "drafts" %}">${ "Your Drafts" | translate }</a></li>
+                {% endif %}
+                {% if visitor.group.can("change_settings", "toggle_extensions") %}
+                <li><a id="site_settings" href="$site.chyrp_url/admin/">${ "Admin" | translate }</a></li>
+                {% endif %}
+                <li class="close"><a class="toggle_admin" href="{% url "toggle_admin" %}">${ "Close" | translate }</a></li>
+            </ul>
+        </div>
+        {% endif %}
+		<nav id="primary-navigation" class="primary-navigation fixed">
+					    <div class="container group">
+					       <a href="../../" id="toggle-logo" class=""><img src="../../img/navlogo.png" height="35"></a>
+					        <a href="#" id="toggle-menu" class="hamburger">
+					            <span class="bar bar-top"></span>
+					            <span class="bar bar-middle"></span>
+					            <span class="bar bar-bottom"></span>
+					        </a>
+					        <ul id="links" class="links">
+								<li><a href="../../prints/">Prints</a></li>
+					            <li><a href="#">Blog</a></li>
+					            <li><a href="../../#gals">Galleries</a></li>
+					            <li id="scrolltogalleries"><a href="../../contact.html">Contact</a></li>
+					        </ul>
+					    </div>
+					</nav>
+			
+			
+				<section class="gallery-container">
+				</section>
+        <div id="blog-container">
+            {% if site.name %}
+            
+            {% endif %}
+            <div id="blog-wrapper">
+                {% for type, messages in flash.all | items %}
+                {% for message in messages %}
+                <div class="${ type | depluralize }">$message</div>
+                {% endfor %}
+                {% endfor %}
+                {% include "content/sidebar.twig" %}
+                <div id="content">
+                {% block content %}{% endblock %}
+                <div class="clear"></div>
+                <div class="page_nav">
+                    $posts.prev_link
+                    {% if posts.paginated and posts.pages > 1 %}
+                    <span class="pages">${ "Page %d of %d" | translate | format(posts.page, posts.pages) }</span>
+                    {% endif %}
+                    $posts.next_link
+                </div>
+                </div>
+                <div class="clear"></div>
+	            </div>
+	        </div>
+				<footer class="footer main-footer">
+							 <div class="container">
+							<div class="social">
+								<a href="http://facebook.com/robbielanephotography"><img src="../../img/facebook.png" class="rotate expand icon"></a>
+								<a href="http://google.com/+RobbieLane"><img src="../../img/googleplus.png" class="rotate expand icon"></a>
+								<a href="http://500px.com/robbielane"><img src="../../img/500px.png" class="rotate expand icon"></a>
+							</div>
+						    <div class="middle-footer">
+								<a href="#top" class="scroll"><img src="../../img/uparrow.png" class="rotate expand icon"></a>
+							</div>
+							<div class="right-footer">
+								<p>&copy 2014 Robbie Lane</p>
+							</div>
+						</div>
+						</footer> 
+            
+        ${ trigger.call("end_content") }
+        {% include "content/debug.twig" %}
+        <!-- Queries: $sql_queries | Load Time: $theme.load_time -->
+		<script src="../../js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+					<script src="http://robbielane.net/js/vendor/jquery-1.11.0.min.js"></script>
+					<script src="../../../js/vendor/waypoints.min.js"></script>
+					<script src="../../../js/magpop.js"></script>
+					<script src="../../../js/site.js"></script>
+					<script src="http://robbielane.net/js/phlog.js"></script>
+					
+    </body>
+</html>

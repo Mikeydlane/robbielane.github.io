@@ -1,0 +1,45 @@
+<?php
+class __TwigTemplate_52a741c87a9e53b5ea844ad71d11dcb1 {
+public function render($context) {
+/* LINE:1 */
+if (((isset($context['debug']) ? $context['debug'] : NULL)) && (twig_get_attribute(twig_get_attribute((isset($context['visitor']) ? $context['visitor'] : NULL), "group"), "name") == ($tmp1 = "Admin"))) {
+echo "\n<div id=\"debug\">\n    <h5>\n        <a class=\"toggle\" href=\"javascript:void(0)\">";
+/* LINE:4 */
+echo twig_translate_string_filter("Toggle");
+echo "</a>\n        ";
+/* LINE:5 */
+echo twig_translate_string_filter("Stats");
+echo "\n    </h5>\n    <ul>\n        <li><strong>";
+/* LINE:8 */
+echo twig_translate_string_filter("Queries:");
+echo "</strong> ";
+echo (isset($context['sql_queries']) ? $context['sql_queries'] : NULL);
+echo "</li>\n        <li><strong>";
+/* LINE:9 */
+echo twig_translate_string_filter("Load Time:");
+echo "</strong> ";
+echo twig_get_attribute((isset($context['theme']) ? $context['theme'] : NULL), "load_time");
+echo " ";
+echo twig_translate_string_filter("seconds");
+echo "</li>\n    </ul>\n    <br />\n    <h5>";
+/* LINE:12 */
+echo twig_translate_string_filter("Queries");
+echo "</h5>\n    <ol class=\"queries\">\n        ";
+/* LINE:14 */
+$context['::parent'] = $parent = $context;
+foreach (twig_iterate($context, (isset($context['sql_debug']) ? $context['sql_debug'] : NULL)) as $iterator) {
+twig_set_loop_context($context, $iterator, "debug");
+echo "\n        <li>\n            <pre>";
+/* LINE:16 */
+echo twig_escape_filter(twig_replace_filter(twig_get_attribute((isset($context['debug']) ? $context['debug'] : NULL), "query"), "\t", "    "));
+echo "</pre>\n            <em>";
+/* LINE:17 */
+echo sprintf(twig_translate_string_filter("Called from <strong>%s</strong> on line <strong>%d</strong> at %ss."), twig_get_attribute((isset($context['debug']) ? $context['debug'] : NULL), "file"), twig_get_attribute((isset($context['debug']) ? $context['debug'] : NULL), "line"), twig_get_attribute((isset($context['debug']) ? $context['debug'] : NULL), "time"));
+echo "</em>\n        </li>\n        ";
+}
+$context = $context['::parent'];
+/* LINE:19 */
+echo "\n    </ol>\n    <div class=\"clear\"></div>\n</div>\n";
+}
+}
+}

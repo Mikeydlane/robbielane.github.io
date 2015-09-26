@@ -1,0 +1,17 @@
+<section id="sidebar">
+	<figure id="user_logo">
+		<a href="$site.url"><div class="logo">&nbsp;</div></a>
+	</figure>
+	<div class="user_meta">
+		{% if site.name %}<h1 id="user"><a href="$site.url" class="">$site.name</a></h1>{% endif %}
+		{% if site.description %}<h2>$site.description</h2>{% endif %}
+${ trigger.call("sidebar") }
+		<ul>
+			{% for item in theme.pages_list %}<li><a href="$item.page.url">$item.page.title</a></li>{% endfor %}
+			{% if theme.archives_list %}<li><a href="{% url "archive" %}">${ "Archive" | translate }</a></li>{% endif %}
+			<li><a href="/about/">about</a></li>
+			<li><a class="atom" href="{% url "feed" %}">Atom Feed</a> </li>
+		</ul>
+	</div>
+	<footer><address>Powered by <a href="http://www.chyrp.net">Chyrp</a></address></footer>
+</section>

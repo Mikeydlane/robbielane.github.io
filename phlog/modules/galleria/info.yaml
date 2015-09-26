@@ -1,0 +1,9 @@
+name: Galleria
+url: chyrp.net
+version: 1.0
+description: Adds support for the galleria image gallery
+author:
+  name: Jack Lightbody
+  url: chyrp.net
+conflicts:
+  - no idea

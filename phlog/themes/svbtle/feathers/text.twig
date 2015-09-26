@@ -1,0 +1,11 @@
+{% extends "content/post.twig" %}
+{% block content %}
+<li>
+	<h1 class="title"><a href="$post.url">$post.title</a></h1>
+	<abbr class="published" title="${ post.created_at | date("j M Y") }">${ post.created_at | date("j M Y") }</abbr>
+	{% if post.editable or post.deletable %}
+	<abbr>${ post.edit_link("Edit" | translate) }	${ post.delete_link("Delete" | translate, " | ") }</abbr>
+	{% endif %}
+	<div class="entry-content">${ post.body | read_more }</div>
+</li>		
+{% endblock %}

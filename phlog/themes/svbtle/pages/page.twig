@@ -1,0 +1,11 @@
+{% extends "layouts/default.twig" %}
+{% block content %}
+ <li>
+	<h1 class="title"><a href="$page.url">$page.title</a></h1>
+	<abbr class="published" title="${ page.created_at | date("j M Y") }">${ page.created_at | date("j M Y") }</abbr>
+	{% if page.editable or page.deletable %}
+	<abbr>${ page.edit_link("Edit" | translate) }${ page.delete_link("Delete" | translate, " | ") }</abbr>
+	{% endif %}
+	<div class="entry-content">${ page.body | read_more }</div>
+</li>		
+{% endblock %}

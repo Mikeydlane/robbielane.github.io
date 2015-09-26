@@ -1,0 +1,224 @@
+<?php
+class __TwigTemplate_c19a24ba4c4f488924cc287729ac8d39 {
+public function render($context) {
+/* LINE:1 */
+echo "<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\">\n    <head profile=\"http://gmpg.org/xfn/11\">\n        <meta http-equiv=\"Content-type\" content=\"";
+/* LINE:4 */
+echo twig_get_attribute((isset($context['theme']) ? $context['theme'] : NULL), "type");
+echo "; charset=utf-8\" />\n        <title>";
+/* LINE:5 */
+$this->block_title($context);
+echo "</title>\n        <meta name=\"description\" content=\"";
+/* LINE:6 */
+echo twig_get_attribute((isset($context['site']) ? $context['site'] : NULL), "description");
+echo "\" />\n        <meta name=\"generator\" content=\"Chyrp\" />\n        <link rel=\"pingback\" href=\"";
+/* LINE:8 */
+echo twig_get_attribute((isset($context['site']) ? $context['site'] : NULL), "chyrp_url");
+echo "/includes/xmlrpc.php\" />\n        <link rel=\"EditURI\" type=\"application/rsd+xml\" href=\"";
+/* LINE:9 */
+echo twig_get_attribute((isset($context['site']) ? $context['site'] : NULL), "chyrp_url");
+echo "/includes/rsd.php\" />\n        <link rel=\"shortcut icon\" href=\"";
+/* LINE:10 */
+echo twig_get_attribute((isset($context['site']) ? $context['site'] : NULL), "url");
+echo "/favicon.ico\" />\n        <link rel=\"canonical\" href=\"";
+/* LINE:11 */
+echo url(twig_get_attribute((isset($context['route']) ? $context['route'] : NULL), "request"));
+echo "\" />\n        ";
+/* LINE:12 */
+if (twig_get_attribute(twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "next"), "url")) {
+echo "<link rel=\"next\" href=\"";
+echo twig_get_attribute(twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "next"), "url");
+echo "\" />";
+}
+echo "\n        ";
+/* LINE:13 */
+if (twig_get_attribute(twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "prev"), "url")) {
+echo "<link rel=\"prev\" href=\"";
+echo twig_get_attribute(twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "prev"), "url");
+echo "\" />";
+}
+echo "\n        ";
+/* LINE:14 */
+echo twig_get_attribute((isset($context['theme']) ? $context['theme'] : NULL), "feeds");
+echo "\n        ";
+/* LINE:15 */
+echo twig_get_attribute((isset($context['theme']) ? $context['theme'] : NULL), "stylesheets");
+echo "\n        ";
+/* LINE:16 */
+echo twig_get_attribute((isset($context['theme']) ? $context['theme'] : NULL), "javascripts");
+echo "\n    ";
+/* LINE:17 */
+echo call_user_func(array((isset($context['trigger']) ? $context['trigger'] : NULL), "call"), "head");
+echo "\n    </head>\n    <body>\n        ";
+/* LINE:20 */
+if (call_user_func(array(twig_get_attribute((isset($context['visitor']) ? $context['visitor'] : NULL), "group"), "can"), "add_post", "add_draft", "add_page", "view_own_draft", "view_draft", "change_settings", "toggle_extensions")) {
+echo "\n        <div id=\"controls\"";
+/* LINE:21 */
+if ((isset($context['hide_admin']) ? $context['hide_admin'] : NULL)) {
+echo " style=\"display: none\"";
+}
+echo ">\n            <ul>\n                ";
+/* LINE:23 */
+if (call_user_func(array(twig_get_attribute((isset($context['visitor']) ? $context['visitor'] : NULL), "group"), "can"), "add_post")) {
+echo "\n                <li><a id=\"add_post\" href=\"";
+/* LINE:24 */
+echo fix(Config::current()->chyrp_url."/admin/?action=".("write_post"));
+echo "\">";
+echo twig_translate_string_filter("Write");
+echo "</a></li>\n                ";
+}
+elseif (call_user_func(array(twig_get_attribute((isset($context['visitor']) ? $context['visitor'] : NULL), "group"), "can"), "add_draft")) {
+/* LINE:25 */
+echo "\n                <li><a id=\"add_draft\" href=\"";
+/* LINE:26 */
+echo fix(Config::current()->chyrp_url."/admin/?action=".("write_post"));
+echo "\">";
+echo twig_translate_string_filter("Write Draft");
+echo "</a></li>\n                ";
+}
+/* LINE:27 */
+echo "\n                ";
+/* LINE:28 */
+if (call_user_func(array(twig_get_attribute((isset($context['visitor']) ? $context['visitor'] : NULL), "group"), "can"), "add_page")) {
+echo "\n                <li><a id=\"add_page\" href=\"";
+/* LINE:29 */
+echo fix(Config::current()->chyrp_url."/admin/?action=".("write_page"));
+echo "\">";
+echo twig_translate_string_filter("Add Page");
+echo "</a></li>\n                ";
+}
+/* LINE:30 */
+echo "\n                ";
+/* LINE:31 */
+if (call_user_func(array(twig_get_attribute((isset($context['visitor']) ? $context['visitor'] : NULL), "group"), "can"), "view_own_draft", "view_draft")) {
+echo "\n                <li><a id=\"your_drafts\" href=\"";
+/* LINE:32 */
+echo url("drafts");
+echo "\">";
+echo twig_translate_string_filter("Your Drafts");
+echo "</a></li>\n                ";
+}
+/* LINE:33 */
+echo "\n                ";
+/* LINE:34 */
+if (call_user_func(array(twig_get_attribute((isset($context['visitor']) ? $context['visitor'] : NULL), "group"), "can"), "change_settings", "toggle_extensions")) {
+echo "\n                <li><a id=\"site_settings\" href=\"";
+/* LINE:35 */
+echo twig_get_attribute((isset($context['site']) ? $context['site'] : NULL), "chyrp_url");
+echo "/admin/\">";
+echo twig_translate_string_filter("Admin");
+echo "</a></li>\n                ";
+}
+/* LINE:36 */
+echo "\n                <li class=\"close\"><a class=\"toggle_admin\" href=\"";
+/* LINE:37 */
+echo url("toggle_admin");
+echo "\">";
+echo twig_translate_string_filter("Close");
+echo "</a></li>\n            </ul>\n        </div>\n        ";
+}
+/* LINE:40 */
+echo "\n        <div id=\"container\">\n            ";
+/* LINE:42 */
+if (twig_get_attribute((isset($context['site']) ? $context['site'] : NULL), "name")) {
+echo "\n            <div id=\"header\">\n                <div id=\"search_box\">\n                    <form action=\"";
+/* LINE:45 */
+echo twig_get_attribute((isset($context['site']) ? $context['site'] : NULL), "url");
+echo "\" method=\"get\" accept-charset=\"utf-8\">\n                        <fieldset>\n                            <input type=\"hidden\" name=\"action\" value=\"search\" id=\"action\" />\n                            <input type=\"text\" id=\"search\" name=\"query\" value=\"";
+/* LINE:48 */
+echo twig_escape_filter(twig_get_attribute((isset($context['GET']) ? $context['GET'] : NULL), "query"));
+echo "\" x-webkit-speech />\n                        </fieldset>\n                    </form>\n                </div>\n                <div class=\"header_box\">\n                    <h1><a href=\"";
+/* LINE:53 */
+echo twig_get_attribute((isset($context['site']) ? $context['site'] : NULL), "url");
+echo "\">";
+echo twig_get_attribute((isset($context['site']) ? $context['site'] : NULL), "name");
+echo "</a>\n                        ";
+/* LINE:54 */
+if (twig_get_attribute((isset($context['site']) ? $context['site'] : NULL), "description")) {
+echo "<span class=\"description\">";
+echo twig_get_attribute((isset($context['site']) ? $context['site'] : NULL), "description");
+echo "</span>";
+}
+echo "\n                    </h1>\n                </div>\n            </div>\n            ";
+}
+/* LINE:58 */
+echo "\n            <div id=\"wrapper\">\n                ";
+/* LINE:60 */
+$context['::parent'] = $parent = $context;
+foreach (twig_iterate($context, twig_get_array_items_filter(twig_get_attribute((isset($context['flash']) ? $context['flash'] : NULL), "all"))) as $iterator) {
+twig_set_loop_context_multitarget($context, $iterator, array("type", "messages"));
+echo "\n                ";
+/* LINE:61 */
+$context['::parent'] = $parent = $context;
+foreach (twig_iterate($context, (isset($context['messages']) ? $context['messages'] : NULL)) as $iterator) {
+twig_set_loop_context($context, $iterator, "message");
+echo "\n                <div class=\"";
+/* LINE:62 */
+echo twig_depluralize_string_filter((isset($context['type']) ? $context['type'] : NULL));
+echo "\">";
+echo (isset($context['message']) ? $context['message'] : NULL);
+echo "</div>\n                ";
+}
+$context = $context['::parent'];
+/* LINE:63 */
+echo "\n                ";
+}
+$context = $context['::parent'];
+/* LINE:64 */
+echo "\n                ";
+/* LINE:65 */
+twig_get_current_template()->loader->getTemplate("content/sidebar.twig")->display($context);
+echo "\n                <div id=\"content\">\n                ";
+/* LINE:67 */
+$this->block_content($context);
+echo "\n                <div class=\"clear\"></div>\n                <div class=\"page_nav\">\n                    ";
+/* LINE:70 */
+echo twig_get_attribute((isset($context['posts']) ? $context['posts'] : NULL), "prev_link");
+echo "\n                    ";
+/* LINE:71 */
+if ((twig_get_attribute((isset($context['posts']) ? $context['posts'] : NULL), "paginated")) && (twig_get_attribute((isset($context['posts']) ? $context['posts'] : NULL), "pages") > ($tmp1 = 1))) {
+echo "\n                    <span class=\"pages\">";
+/* LINE:72 */
+echo sprintf(twig_translate_string_filter("Page %d of %d"), twig_get_attribute((isset($context['posts']) ? $context['posts'] : NULL), "page"), twig_get_attribute((isset($context['posts']) ? $context['posts'] : NULL), "pages"));
+echo "</span>\n                    ";
+}
+/* LINE:73 */
+echo "\n                    ";
+/* LINE:74 */
+echo twig_get_attribute((isset($context['posts']) ? $context['posts'] : NULL), "next_link");
+echo "\n                </div>\n                </div>\n                <div class=\"clear\"></div>\n                <div id=\"footer\">\n                    <p>";
+/* LINE:79 */
+echo twig_translate_string_filter("Powered by <a class=\"chyrp\" href=\"http://chyrp.net/\">Chyrp</a>");
+echo " | \n                       ";
+/* LINE:80 */
+echo sprintf("Firecrest Theme &copy; %d, Chyrp Team", twig_date_format_filter("now", "Y"));
+echo "</p>\n                    <a class=\"atom\" href=\"";
+/* LINE:81 */
+echo url("feed");
+echo "\">atom</a>\n                </div>\n            </div>\n        </div>\n        ";
+/* LINE:85 */
+echo call_user_func(array((isset($context['trigger']) ? $context['trigger'] : NULL), "call"), "end_content");
+echo "\n        ";
+/* LINE:86 */
+twig_get_current_template()->loader->getTemplate("content/debug.twig")->display($context);
+echo "\n        <!-- Queries: ";
+/* LINE:87 */
+echo (isset($context['sql_queries']) ? $context['sql_queries'] : NULL);
+echo " | Load Time: ";
+echo twig_get_attribute((isset($context['theme']) ? $context['theme'] : NULL), "load_time");
+echo " -->\n    </body>\n</html>\n";
+}
+/* LINE:5 */
+public function block_title($context) {
+echo twig_get_attribute((isset($context['site']) ? $context['site'] : NULL), "name");
+if ((isset($context['title']) ? $context['title'] : NULL)) {
+echo " &raquo; ";
+echo twig_escape_filter((isset($context['title']) ? $context['title'] : NULL));
+}
+}
+
+/* LINE:67 */
+public function block_content($context) {
+}
+
+}
